@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Tasty Delights</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* Header and Navigation */
+        header {
+            background-color: #ff6b6b;
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        
+        .logo span {
+            color: #f7fff7;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 2rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #f7fff7;
+        }
+        
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 50vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+        
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* About Content */
+        .about-content {
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: #ff6b6b;
+        }
+        
+        .section-title p {
+            color: #777;
+            max-width: 700px;
+            margin: 0.5rem auto 0;
+        }
+        
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+        
+        .about-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+        
+        .about-icon {
+            font-size: 3rem;
+            color: #ff6b6b;
+            margin-bottom: 1rem;
+        }
+        
+        .about-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .story-section {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            margin: 5rem 0;
+        }
+        
+        .story-text {
+            flex: 1;
+        }
+        
+        .story-text h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: #ff6b6b;
+        }
+        
+        .story-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .story-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Team Section */
+        .team {
+            padding: 5rem 0;
+            background-color: white;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .team-member {
+            background: #f9f9f9;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+        
+        .team-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 1rem;
+            border: 5px solid #ff6b6b;
+        }
+        
+        .team-member h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .team-member p {
+            color: #ff6b6b;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+        
+        /* Values Section */
+        .values {
+            padding: 5rem 0;
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .value-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .value-card h3 {
+            font-size: 1.5rem;
+            color: #ff6b6b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+        
+        .footer-links li {
+            margin: 0 1rem;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        
+        .social-icons {
+            margin: 1.5rem 0;
+        }
+        
+        .social-icons a {
+            color: white;
+            margin: 0 0.5rem;
+            font-size: 1.5rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .story-section {
+                flex-direction: column;
+            }
+            
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Tasty<span>Delights</span></div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Our Story</h1>
+            <p>Discover the passion behind our delicious creations</p>
+        </div>
+    </section>
+
+    <!-- About Content -->
+    <section class="about-content">
+        <div class="container">
+            <div class="section-title">
+                <h2>Who We Are</h2>
+                <p>We're more than just a restaurant - we're a culinary experience</p>
+            </div>
+            
+            <div class="about-grid">
+                <div class="about-card">
+                    <div class="about-icon">🍴</div>
+                    <h3>Our Cuisine</h3>
+                    <p>We blend traditional recipes with modern techniques to create unforgettable dining experiences that honor the past while embracing the future.</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">🌱</div>
+                    <h3>Our Ingredients</h3>
+                    <p>We source the freshest local ingredients from trusted farmers and producers who share our commitment to quality and sustainability.</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">❤️</div>
+                    <h3>Our Passion</h3>
+                    <p>Food is our love language. Every dish is prepared with care, creativity, and a dedication to excellence that you can taste in every bite.</p>
+                </div>
+            </div>
+            
+            <div class="story-section">
+                <div class="story-text">
+                    <h2>From Humble Beginnings</h2>
+                    <p>Founded in 2010 by Chef Maria Gonzalez, Tasty Delights started as a small 20-seat bistro with a simple mission: to serve delicious, honest food made with love.</p>
+                    <p>What began as a neighborhood favorite soon gained city-wide recognition for our innovative takes on classic dishes. Our commitment to quality ingredients and exceptional service helped us grow into the establishment we are today.</p>
+                    <p>While we've expanded over the years, we've never lost sight of our roots. We still prepare many of Maria's original recipes, now under the guidance of Executive Chef David Miller, who continues her legacy of culinary excellence.</p>
+                </div>
+                <div class="story-image">
+                    <img src="https://images.unsplash.com/photo-1606787366850-de6330128bfc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Restaurant kitchen">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team">
+        <div class="container">
+            <div class="section-title">
+                <h2>Meet Our Team</h2>
+                <p>The talented individuals behind your dining experience</p>
+            </div>
+            
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Chef David Miller" class="team-photo">
+                    <h3>David Miller</h3>
+                    <p>Executive Chef</p>
+                    <p>With 15 years of experience in Michelin-starred restaurants, Chef David brings innovation and precision to our kitchen.</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Chef Sarah Johnson" class="team-photo">
+                    <h3>Sarah Johnson</h3>
+                    <p>Pastry Chef</p>
+                    <p>Our dessert menu is Sarah's canvas, where she creates edible works of art that delight all the senses.</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Michael Chen" class="team-photo">
+                    <h3>Michael Chen</h3>
+                    <p>Sommelier</p>
+                    <p>Michael's expert pairings elevate every meal, with a wine selection that spans the globe's finest vineyards.</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Lisa Rodriguez" class="team-photo">
+                    <h3>Lisa Rodriguez</h3>
+                    <p>General Manager</p>
+                    <p>Lisa ensures every guest receives impeccable service and an unforgettable dining experience.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Core Values</h2>
+                <p>The principles that guide everything we do</p>
+            </div>
+            
+            <div class="values-grid">
+                <div class="value-card">
+                    <h3>🌟 Quality</h3>
+                    <p>We never compromise on quality, from selecting ingredients to final presentation. Every component of your meal meets our exacting standards.</p>
+                </div>
+                <div class="value-card">
+                    <h3>🌍 Sustainability</h3>
+                    <p>We're committed to environmentally responsible practices, including waste reduction, energy efficiency, and supporting local producers.</p>
+                </div>
+                <div class="value-card">
+                    <h3>🤝 Community</h3>
+                    <p>We believe in giving back to the community that supports us through local partnerships, charity events, and culinary education programs.</p>
+                </div>
+                <div class="value-card">
+                    <h3>✨ Innovation</h3>
+                    <p>While respecting tradition, we continually explore new techniques and flavor combinations to keep our menu exciting and fresh.</p>
+                </div>
+                <div class="value-card">
+                    <h3>😊 Hospitality</h3>
+                    <p>Every guest is treated like family. Our warm, attentive service completes the Tasty Delights experience.</p>
+                </div>
+                <div class="value-card">
+                    <h3>🧑‍🍳 Craftsmanship</h3>
+                    <p>Our chefs are artists who take pride in their work, transforming quality ingredients into culinary masterpieces.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="logo">Tasty<span>Delights</span></div>
+            <ul class="footer-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="social-icons">
+                <a href="#">📱</a>
+                <a href="#">📘</a>
+                <a href="#">📸</a>
+                <a href="#">🐦</a>
+            </div>
+            <p>&copy; 2023 Tasty Delights. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

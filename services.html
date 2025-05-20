@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - Tasty Delights</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* Header and Navigation */
+        header {
+            background-color: #ff6b6b;
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        
+        .logo span {
+            color: #f7fff7;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 2rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #f7fff7;
+        }
+        
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 50vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+        
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* Services Section */
+        .services-main {
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: #ff6b6b;
+        }
+        
+        .section-title p {
+            color: #777;
+            max-width: 700px;
+            margin: 0.5rem auto 0;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .service-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .service-card:hover .service-image img {
+            transform: scale(1.1);
+        }
+        
+        .service-content {
+            padding: 1.5rem;
+        }
+        
+        .service-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #ff6b6b;
+        }
+        
+        .service-content p {
+            margin-bottom: 1.5rem;
+            color: #666;
+        }
+        
+        .price {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #ff6b6b;
+            margin-bottom: 1rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #ff6b6b;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        
+        .btn:hover {
+            background: #ff5252;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 5rem 0;
+            background-color: white;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .testimonial-card {
+            background: #f9f9f9;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+        
+        .testimonial-text::before {
+            content: '"';
+            font-size: 3rem;
+            color: #ff6b6b;
+            opacity: 0.3;
+            position: absolute;
+            top: -1rem;
+            left: -1rem;
+        }
+        
+        .client-info {
+            display: flex;
+            align-items: center;
+        }
+        
+        .client-photo {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 1rem;
+        }
+        
+        .client-name {
+            font-weight: bold;
+        }
+        
+        .client-role {
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        /* FAQ Section */
+        .faq {
+            padding: 5rem 0;
+        }
+        
+        .faq-item {
+            background: white;
+            margin-bottom: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            padding: 1.5rem;
+            background: #ff6b6b;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-answer {
+            padding: 1.5rem;
+            display: none;
+        }
+        
+        .faq-answer.show {
+            display: block;
+        }
+        
+        /* CTA Section */
+        .cta {
+            padding: 5rem 0;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+        }
+        
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .cta p {
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            font-size: 1.1rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+        
+        .footer-links li {
+            margin: 0 1rem;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        
+        .social-icons {
+            margin: 1.5rem 0;
+        }
+        
+        .social-icons a {
+            color: white;
+            margin: 0 0.5rem;
+            font-size: 1.5rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Tasty<span>Delights</span></div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Our Services</h1>
+            <p>Discover how we can make your dining experience unforgettable</p>
+        </div>
+    </section>
+
+    <!-- Main Services Section -->
+    <section class="services-main">
+        <div class="container">
+            <div class="section-title">
+                <h2>What We Offer</h2>
+                <p>From intimate dinners to grand celebrations, we have services to suit every occasion</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Fine Dining">
+                    </div>
+                    <div class="service-content">
+                        <h3>Fine Dining Experience</h3>
+                        <p>Our signature multi-course tasting menus showcase seasonal ingredients with wine pairings available.</p>
+                        <div class="price">From $85 per person</div>
+                        <a href="#" class="btn">Reserve Table</a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1505576399279-565b52d4ac71?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Private Dining">
+                    </div>
+                    <div class="service-content">
+                        <h3>Private Dining</h3>
+                        <p>Exclusive spaces for groups of 10-50 with customized menus and dedicated service.</p>
+                        <div class="price">From $1,200 for 10 guests</div>
+                        <a href="#" class="btn">Inquire Now</a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1555244162-803834f70033?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Catering">
+                    </div>
+                    <div class="service-content">
+                        <h3>Event Catering</h3>
+                        <p>Full-service catering for weddings, corporate events, and special occasions.</p>
+                        <div class="price">From $45 per person</div>
+                        <a href="#" class="btn">Get a Quote</a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1547592180-85f173990554?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Cooking Classes">
+                    </div>
+                    <div class="service-content">
+                        <h3>Cooking Classes</h3>
+                        <p>Interactive sessions with our chefs learning techniques and recipes from our menu.</p>
+                        <div class="price">$75 per person</div>
+                        <a href="#" class="btn">View Schedule</a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Meal Kits">
+                    </div>
+                    <div class="service-content">
+                        <h3>Meal Kits</h3>
+                        <p>Chef-prepared ingredients with instructions to recreate our dishes at home.</p>
+                        <div class="price">From $60 per kit (serves 2)</div>
+                        <a href="#" class="btn">Order Now</a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Delivery">
+                    </div>
+                    <div class="service-content">
+                        <h3>Premium Delivery</h3>
+                        <p>Our full menu available for delivery with special packaging to preserve quality.</p>
+                        <div class="price">$10 delivery fee</div>
+                        <a href="#" class="btn">Order Online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Our Clients Say</h2>
+                <p>Hear from those who've experienced our services</p>
+            </div>
+            
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        The private dining experience was absolutely flawless. From the customized menu to the impeccable service, every detail was perfect for our anniversary celebration.
+                    </div>
+                    <div class="client-info">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Sarah Johnson" class="client-photo">
+                        <div>
+                            <div class="client-name">Sarah Johnson</div>
+                            <div class="client-role">Private Dining Client</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        We've used Tasty Delights for three corporate events now, and they consistently deliver exceptional food and service. Their team makes event planning effortless.
+                    </div>
+                    <div class="client-info">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Michael Chen" class="client-photo">
+                        <div>
+                            <div class="client-name">Michael Chen</div>
+                            <div class="client-role">Corporate Client</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        The cooking class was both fun and educational. I've already used the techniques I learned to impress my family with restaurant-quality meals at home.
+                    </div>
+                    <div class="client-info">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Lisa Rodriguez" class="client-photo">
+                        <div>
+                            <div class="client-name">Lisa Rodriguez</div>
+                            <div class="client-role">Cooking Class Participant</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <div class="container">
+            <div class="section-title">
+                <h2>Frequently Asked Questions</h2>
+                <p>Find answers to common questions about our services</p>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleAnswer(this)">
+                    What areas do you deliver to?
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>We currently deliver within a 10-mile radius of our restaurant location. Delivery is available Tuesday through Sunday from 5pm to 10pm. A minimum order of $50 is required for delivery.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleAnswer(this)">
+                    How far in advance should I book catering?
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>We recommend booking catering services at least 3 weeks in advance for events under 50 people, and 6-8 weeks in advance for larger events. Last-minute bookings may be available depending on our schedule.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleAnswer(this)">
+                    Can you accommodate dietary restrictions?
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, we can accommodate most dietary needs including vegetarian, vegan, gluten-free, and common allergies. Please inform us of any restrictions when making your reservation or placing your order.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleAnswer(this)">
+                    What is your cancellation policy?
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>For private dining and catering, cancellations made more than 7 days in advance receive a full refund. Between 7-3 days, we charge 50% of the estimated total. Within 72 hours, the full amount is non-refundable.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Experience Our Services?</h2>
+            <p>Whether you're planning a special occasion, looking for an exceptional meal at home, or wanting to improve your culinary skills, we have the perfect service for you.</p>
+            <a href="contact.html" class="btn">Contact Us Today</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="logo">Tasty<span>Delights</span></div>
+            <ul class="footer-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="social-icons">
+                <a href="#">📱</a>
+                <a href="#">📘</a>
+                <a href="#">📸</a>
+                <a href="#">🐦</a>
+            </div>
+            <p>&copy; 2023 Tasty Delights. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple JavaScript to toggle FAQ answers
+        function toggleAnswer(question) {
+            const answer = question.nextElementSibling;
+            const plusMinus = question.querySelector('span');
+            
+            if (answer.classList.contains('show')) {
+                answer.classList.remove('show');
+                plusMinus.textContent = '+';
+            } else {
+                answer.classList.add('show');
+                plusMinus.textContent = '-';
+            }
+        }
+    </script>
+</body>
+</html>
